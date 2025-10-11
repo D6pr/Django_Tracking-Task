@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ task.title }}</title>
+</head>
+<body>
+    <h1>{{ task.title }}</h1>
+    <p><b>Опис:</b> {{ task.description }}</p>
+    <p><b>Статус:</b> {{ task.get_status_display }}</p>
+    <p><b>Пріоритет:</b> {{ task.get_priority_display }}</p>
+    <p><b>Дата:</b> {{ task.date }}</p>
+
+    <a href="{% url 'task_list' %}">Назад до списку</a>
+</body>
+</html>
