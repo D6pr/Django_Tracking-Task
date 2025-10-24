@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Реєстрація</title>
+</head>
+<body>
+    <h2>Реєстрація</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зареєструватися</button>
+    </form>
+
+    {% for message in messages %}
+        <p style="color: rgb(255, 0, 0);">{{ message }}</p>
+    {% endfor %}
+
+    <a href="/">На головну сторінку</a>
+</body>
+</html>

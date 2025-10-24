@@ -5,6 +5,18 @@
     <title>Список задач</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+  <p>Привіт, {{ user.username }}!</p>
+    <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Вийти</button>
+    </form>
+    {% else %}
+  <a href="{% url 'login' %}"><button>Увійти</button></a>
+  <a href="{% url 'register' %}">
+        <button>Зареєструватися</button>
+    </a>
+    {% endif %}
     <h1>Список задач</h1>
     <a href="{% url 'task_create' %}">Створити задачу</a> 
     <ul>
