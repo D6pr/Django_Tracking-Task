@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Видалити {{ task.title }}</title>
+</head>
+<body>
+    <h1>Видалити задачу "{{ task.title }}"?</h1>
+    <p>Цю операцію не можна буде скасувати.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Підтвердити видалення</button>
+        <a href="{% url 'task_detail' task.pk %}"><button type="button">Скасувати</button></a>
+    </form>
+</body>
+</html>

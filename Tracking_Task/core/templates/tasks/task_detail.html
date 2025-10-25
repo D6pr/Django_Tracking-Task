@@ -12,5 +12,13 @@
     <p><b>Дата:</b> {{ task.date }}</p>
 
     <a href="{% url 'task_list' %}">Назад до списку</a>
+    {% if task.user == request.user %}
+    <a href="{% url 'task_edit' task.pk %}">
+        <button>Змінити</button>
+    </a>
+    <a href="{% url 'task_delete' task.pk %}">
+        <button>Видалити</button>
+    </a>
+    {% endif %}
 </body>
 </html>
