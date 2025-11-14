@@ -11,60 +11,70 @@
     >
 </head>
 <body>
-    <h1>{{ task.title }}</h1>
-    <p><b>Опис:</b> {{ task.description }}</p>
-    <p><b>Статус:</b> {{ task.get_status_display }}</p>
-    <p><b>Пріоритет:</b> {{ task.get_priority_display }}</p>
-    <p><b>Дата:</b> {{ task.date }}</p>
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h1>{{ task.title }}</h1>
+        <p><b>Опис:</b> {{ task.description }}</p>
+        <p><b>Статус:</b> {{ task.get_status_display }}</p>
+        <p><b>Пріоритет:</b> {{ task.get_priority_display }}</p>
+        <p><b>Дата:</b> {{ task.date }}</p>
 
-    <a href="{% url 'task_list' %}">Назад до списку</a>
-    {% if task.user == request.user %}
-    <a href="{% url 'task_edit' task.pk %}">
-        <button>Змінити</button>
-    </a>
-    <a href="{% url 'task_delete' task.pk %}">
-        <button>Видалити</button>
-    </a>
-    {% endif %}
-    <div class="comments mt-4">
-        <h3>Коментарі</h3>
-        {% for comment in task.comments.all %}
-            <div class="comment mb-2">
-                <p>{{ comment.content }}</p>
-                {% if comment.media %}
-                    <div class="comment-media">
-                        {% if ".jpg" in comment.media.url or ".png" in comment.media.url or ".jpeg" in comment.media.url %}
-                            <img src="{{ comment.media.url }}" alt="Зображення коментаря" style="max-width: 1000px;">
-                        {% elif ".mp4" in comment.media.url|lower %}
-                            <video width="320" height="240" controls>
-                                <source src="{{ comment.media.url }}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        {% else %}
-                            <a href="{{ comment.media.url }}">Завантажити файл</a>
+        <div class="mb-3">
+            <a href="{% url 'task_list' %}" class="btn btn-secondary">Назад до списку</a>
+            {% if task.user == request.user %}
+                <a href="{% url 'task_edit' task.pk %}" class="btn btn-primary ms-2">Змінити</a>
+                <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger ms-2">Видалити</a>
+            {% endif %}
+        </div>
+
+        <div class="comments mt-4">
+            <h3>Коментарі</h3>
+            {% for comment in task.comments.all %}
+                <div class="comment mb-3 p-3 border rounded">
+                    <p>{{ comment.content }}</p>
+                    {% if comment.media %}
+                        <div class="comment-media mt-2">
+                            {% if ".jpg" in comment.media.url or ".png" in comment.media.url or ".jpeg" in comment.media.url %}
+                                <img src="{{ comment.media.url }}" alt="Зображення коментаря" class="img-fluid">
+                            {% elif ".mp4" in comment.media.url|lower %}
+                                <video width="320" height="240" controls>
+                                    <source src="{{ comment.media.url }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            {% else %}
+                                <a href="{{ comment.media.url }}">Завантажити файл</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    <small>Автор: {{ comment.author.username }}</small>
+
+                    <div class="mt-2">
+                        <form action="{% url 'comment-like-toggle' comment.id %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm {% if request.user in comment.likes.all %}btn-success{% else %}btn-outline-success{% endif %}">
+                                Лайк {{ comment.likes.count }}
+                            </button>
+                        </form>
+                        {% if comment.author == request.user %}
+                            <a href="{% url 'comment_delete' comment.id %}" class="btn btn-sm btn-danger ms-2">Видалити</a>
                         {% endif %}
                     </div>
-                {% endif %}
-                <small>Автор: {{ comment.author.username }}</small>
-                <form action="{% url 'comment-like-toggle' comment.id %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-sm {% if request.user in comment.likes.all %}btn-success{% else %}btn-outline-success{% endif %}">
-                        Лайк {{ comment.likes.count }}
-                    </button>
-                </form>
-            </div>
-        {% empty %}
-            <p>Коментарі відсутні.</p>
-        {% endfor %}
-    </div>
+                </div>
+            {% empty %}
+                <p>Коментарі відсутні.</p>
+            {% endfor %}
+        </div>
 
-    <div class="add-comment mt-4">
-        <h4>Додати коментар</h4>
-        <form action="{% url 'comment_add' task.id %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ comment_form.as_p }}
-            <button type="submit" class="btn btn-primary">Відправити</button>
-        </form>
+        <div class="add-comment mt-4">
+            <h4>Додати коментар</h4>
+            <form action="{% url 'comment_add' task.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Відправити</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>

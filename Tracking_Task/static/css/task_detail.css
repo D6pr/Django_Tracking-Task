@@ -1,0 +1,60 @@
+body {
+    background-color: #f8fafc;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+.task-container {
+    width: 100%;
+    max-width: 760px;
+    padding: 15px;
+}
+
+.task-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 35px 30px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+h1, h3, h4 {
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+p {
+    font-size: 16px;
+    color: #334155;
+    margin-bottom: 12px;
+}
+
+.comment {
+    background-color: #f1f5f9;
+}
+
+.comment-media img, .comment-media video {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+button {
+    font-weight: 500;
+}
+
+button.btn-primary, button.btn-danger, button.btn-outline-primary {
+    border-radius: 10px;
+}
+
+button.btn-sm {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.6rem;
+}
+
+.add-comment form p {
+    width: 85%;
+    margin-bottom: 15px;
+}

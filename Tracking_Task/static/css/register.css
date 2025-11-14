@@ -1,0 +1,91 @@
+body {
+    background-color: #f8fafc;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+}
+
+.register-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.register-card:hover {
+    transform: translateY(-3px);
+}
+
+h2 {
+    color: #1d4ed8;
+    font-weight: 600;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрує елементи по горизонталі */
+}
+
+form p {
+    width: 80%; /* звужує ширину полів */
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 500;
+    color: #334155;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+button.btn-primary {
+    background-color: #2563eb;
+    border: none;
+    font-weight: 500;
+    padding: 10px 25px;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button.btn-primary:hover {
+    background-color: #1e40af;
+    transform: translateY(-1px);
+}
+
+button.btn-primary:active {
+    transform: translateY(0);
+}
+
+a.link-primary {
+    color: #2563eb;
+}
+
+a.link-primary:hover {
+    text-decoration: underline;
+}

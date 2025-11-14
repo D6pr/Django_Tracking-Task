@@ -1,0 +1,98 @@
+body {
+    background-color: #f8fafc;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container,
+.register-container {
+    width: 100%;
+    max-width: 460px; /* немного шире формы */
+    padding: 20px;
+}
+
+.login-card,
+.register-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 40px 35px; /* чуть больше воздуха */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.login-card:hover,
+.register-card:hover {
+    transform: translateY(-3px);
+}
+
+h2 {
+    color: #1d4ed8;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form p {
+    width: 85%; /* поля теперь чуть шире */
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: 500;
+    color: #334155;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+input {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px 14px; /* чуть больше высоты */
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+button.btn-primary {
+    background-color: #2563eb;
+    border: none;
+    font-weight: 500;
+    padding: 12px 32px; /* шире и выше */
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+button.btn-primary:hover {
+    background-color: #1e40af;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+button.btn-primary:active {
+    transform: translateY(0);
+}
+
+a.link-primary {
+    color: #2563eb;
+}
+
+a.link-primary:hover {
+    text-decoration: underline;
+}

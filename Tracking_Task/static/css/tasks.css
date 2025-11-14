@@ -1,0 +1,80 @@
+body {
+    background-color: #f8fafc;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+.tasks-container {
+    width: 100%;
+    max-width: 700px; /* чуть шире для списка задач */
+    padding: 15px;
+}
+
+.tasks-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 30px 35px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #1e40af;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background-color: #16a34a;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-success:hover {
+    background-color: #15803d;
+    transform: translateY(-1px);
+}
+
+.list-group-item {
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+.task-title {
+    color: #1d4ed8;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.task-title:hover {
+    text-decoration: underline;
+}
+
+.task-meta {
+    font-size: 0.9rem;
+    color: #64748b;
+}
